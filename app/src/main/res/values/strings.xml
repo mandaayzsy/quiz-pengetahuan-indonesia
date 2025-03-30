@@ -1,5 +1,5 @@
 <resources>
-    <string name="Indonesiaku">Indonesiaku</string>
+    <string name="Indonesiaku">Quiz Pengetahuan Warga Negara Indonesia</string>
     <string name="next_button">Lanjut</string>
     <string name="score_label">Skor Anda: %1$d / %2$d</string>
     <string name="restart_button">Ulangi Kuis</string>

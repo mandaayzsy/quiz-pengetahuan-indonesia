@@ -48,8 +48,8 @@ val quizList = listOf(
         null
     ),
     QuizQuestion(
-        "Berapa jumlah provinsi di Indonesia?",
-        listOf("34", "32", "33", "35"),
+        "Siapa Presiden Indonesia saat ini?",
+        listOf("Prabowo", "Megawati", "Jokowi", "Anies"),
         0,
         null
     ),
