@@ -69,7 +69,7 @@ val quizList = listOf(
     QuizQuestion(
         "10. Apa nama pulau terbesar di Indonesia?",
         listOf("Papua", "Sumatra", "Borneo", "Jawa"),
-        0,
+        2,
         null
     )
 )

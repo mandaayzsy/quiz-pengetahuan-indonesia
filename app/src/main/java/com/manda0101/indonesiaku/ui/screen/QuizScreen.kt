@@ -1,6 +1,5 @@
 package com.manda0101.indonesiaku.ui.screen
 
-import android.widget.Button
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -36,6 +35,7 @@ import com.manda0101.indonesiaku.ui.viewmodel.QuizViewModel
 fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewModel: QuizViewModel) {
     val context = LocalContext.current
     val question = quizList[questionIndex]
+
     val score = quizViewModel.score.intValue
 
     Scaffold(
@@ -53,7 +53,7 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewMod
     ) { contentPadding ->
         Column(modifier = Modifier.padding(contentPadding).padding(16.dp)) {
             Text(
-                text = "Skor Saat Ini: $score",
+                text = "Skor Saat Ini: $score", // Menampilkan score saat ini
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                 modifier = Modifier.padding(bottom = 16.dp)
             )
@@ -76,6 +76,7 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewMod
 
             Spacer(modifier = Modifier.height(16.dp))
 
+            // Menampilkan pilihan ganda
             LazyColumn {
                 itemsIndexed(question.options.chunked(2)) { _, options ->
                     Row(
@@ -88,7 +89,7 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewMod
                                 onClick = {
                                     val isCorrect = index == question.correctAnswer
                                     if (isCorrect) {
-                                        quizViewModel.addScore()
+                                        quizViewModel.addScore()  // Menambahkan skor
                                         Toast.makeText(context, "Jawaban Benar!", Toast.LENGTH_SHORT).show()
                                     } else {
                                         Toast.makeText(context, "Jawaban Salah!", Toast.LENGTH_SHORT).show()
