@@ -1,39 +1,40 @@
 package com.manda0101.indonesiaku.model
 
 import androidx.annotation.DrawableRes
+import com.manda0101.indonesiaku.R
 
-data class  QuizQuestion(
+data class QuizQuestion(
     val question: String,
     val options: List<String>,
     val correctAnswer: Int,
 
     @DrawableRes val imageResId: Int?
 )
-//daftar soal
+
 val quizList = listOf(
     QuizQuestion(
-        "Apa ibu kota Indonesia? ",
+        "Apa ibu kota Indonesia?",
         listOf("Jakarta", "Bandung", "Surabaya", "Medan"),
         0,
         null
     ),
     QuizQuestion(
         "Siapa Presiden pertama Indonesia?",
-        listOf("Soekarno", "Soeharto", "BJ Habibie", "Jokowi"),
-        0,
+        listOf("Soeharto", "Soekarno", "BJ Habibie", "Jokowi"),
+        1,
         null
     ),
     QuizQuestion(
         "Berapa jumlah provinsi di Indonesia?",
-        listOf("34", "32", "33", "35"),
-        0,
+        listOf("32", "34", "33", "35"),
+        1,
         null
     ),
     QuizQuestion(
         "Di mana terletak Candi Borobudur?",
         listOf("Magelang", "Yogyakarta", "Surabaya", "Jakarta"),
         0,
-        null
+        R.drawable.borobudur_temple
     ),
     QuizQuestion(
         "Apa warna bendera Indonesia?",
@@ -43,9 +44,9 @@ val quizList = listOf(
     ),
     QuizQuestion(
         "Dimana letak Taman Nasional Komodo?",
-        listOf("Nusa Tenggara Timur", "Bali", "Sumatra", "Sulawesi"),
-        0,
-        null
+        listOf("Bali","Nusa Tenggara Timur", "Sumatra", "Sulawesi"),
+        1,
+        R.drawable.pulau_komodo
     ),
     QuizQuestion(
         "Siapa Presiden Indonesia saat ini?",
@@ -55,8 +56,8 @@ val quizList = listOf(
     ),
     QuizQuestion(
         "Apa bahasa resmi Indonesia?",
-        listOf("Bahasa Indonesia", "Bahasa Inggris", "Bahasa Jawa", "Bahasa Sunda"),
-        0,
+        listOf("Bahasa Inggris", "Bahasa Indonesia", "Bahasa Jawa", "Bahasa Sunda"),
+        1,
         null
     ),
     QuizQuestion(
@@ -67,8 +68,8 @@ val quizList = listOf(
     ),
     QuizQuestion(
         "Apa nama pulau terbesar di Indonesia?",
-        listOf("Sumatra", "Borneo", "Sulawesi", "Jawa"),
-        1,
+        listOf("Papua", "Sumatra", "Borneo", "Jawa"),
+        0,
         null
     )
 )

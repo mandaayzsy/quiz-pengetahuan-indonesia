@@ -1,6 +1,5 @@
 package com.manda0101.indonesiaku.ui.screen
 
-import android.widget.Button
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -20,6 +19,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -35,6 +36,9 @@ import com.manda0101.indonesiaku.model.quizList
 fun QuizScreen(navController: NavController, questionIndex: Int = 0) {
     val context = LocalContext.current
     val question = quizList[questionIndex]
+
+    // Gunakan mutableIntStateOf untuk mengupdate score
+    val score = rememberSaveable { mutableIntStateOf(0) }
 
     Scaffold(
         topBar = {
@@ -54,6 +58,8 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0) {
                 text = question.question,
                 style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold)
             )
+
+            // Menampilkan gambar jika ada
             question.imageResId?.let { imageResId ->
                 Image(
                     painter = painterResource(id = imageResId),
@@ -70,7 +76,7 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0) {
             // Menampilkan pilihan ganda
             LazyColumn {
                 itemsIndexed(question.options.chunked(2)) { _, options ->
-                    Row (
+                    Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
@@ -78,25 +84,20 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0) {
                             Button(
                                 modifier = Modifier.weight(1f),
                                 onClick = {
-                                    if (index == question.correctAnswer) {
-                                        Toast.makeText(
-                                            context,
-                                            "Jawaban Benar!",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
+                                    val isCorrect = index == question.correctAnswer
+                                    if (isCorrect) {
+                                        score.value += 1  // Tambah score jika jawaban benar
+                                        Toast.makeText(context, "Jawaban Benar!", Toast.LENGTH_SHORT).show()
                                     } else {
-                                        Toast.makeText(
-                                            context,
-                                            "Jawaban salah!",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
+                                        Toast.makeText(context, "Jawaban Salah!", Toast.LENGTH_SHORT).show()
                                     }
 
+                                    // Navigasi ke soal berikutnya atau ke hasil
                                     if (questionIndex < quizList.size - 1) {
                                         navController.navigate("quizScreen/${questionIndex + 1}")
                                     } else {
-                                        // Tidak perlu kembali ke soal pertama
-                                        navController.navigate("resultScreen/score/${questionIndex + 1}")
+                                        // Navigasi ke halaman hasil
+                                        navController.navigate("resultScreen/score/${score.intValue}")
                                     }
                                 }
                             ) {
