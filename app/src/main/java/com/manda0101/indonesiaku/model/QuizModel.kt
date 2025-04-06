@@ -13,19 +13,31 @@ data class QuizQuestion(
 
 val quizList = listOf(
     QuizQuestion(
+<<<<<<< HEAD
         "1. Apa ibu kota Indonesia?",
+=======
+        "Apa ibu kota Indonesia?",
+>>>>>>> 14baeaa (0.5 Tampilan images)
         listOf("Jakarta", "Bandung", "Surabaya", "Medan"),
         0,
         null
     ),
     QuizQuestion(
+<<<<<<< HEAD
         "2. Siapa Presiden pertama Indonesia?",
+=======
+        "Siapa Presiden pertama Indonesia?",
+>>>>>>> 14baeaa (0.5 Tampilan images)
         listOf("Soeharto", "Soekarno", "BJ Habibie", "Jokowi"),
         1,
         null
     ),
     QuizQuestion(
+<<<<<<< HEAD
         "3. Berapa jumlah provinsi di Indonesia?",
+=======
+        "Berapa jumlah provinsi di Indonesia?",
+>>>>>>> 14baeaa (0.5 Tampilan images)
         listOf("32", "34", "33", "35"),
         1,
         null
@@ -43,7 +55,11 @@ val quizList = listOf(
         null
     ),
     QuizQuestion(
+<<<<<<< HEAD
         "6. Dimana letak Taman Nasional Komodo?",
+=======
+        "Dimana letak Taman Nasional Komodo?",
+>>>>>>> 14baeaa (0.5 Tampilan images)
         listOf("Bali","Nusa Tenggara Timur", "Sumatra", "Sulawesi"),
         1,
         R.drawable.pulau_komodo
@@ -55,7 +71,11 @@ val quizList = listOf(
         null
     ),
     QuizQuestion(
+<<<<<<< HEAD
         "8. Apa bahasa resmi Indonesia?",
+=======
+        "Apa bahasa resmi Indonesia?",
+>>>>>>> 14baeaa (0.5 Tampilan images)
         listOf("Bahasa Inggris", "Bahasa Indonesia", "Bahasa Jawa", "Bahasa Sunda"),
         1,
         null
@@ -67,9 +87,15 @@ val quizList = listOf(
         null
     ),
     QuizQuestion(
+<<<<<<< HEAD
         "10. Apa nama pulau terbesar di Indonesia?",
         listOf("Papua", "Sumatra", "Borneo", "Jawa"),
         2,
+=======
+        "Apa nama pulau terbesar di Indonesia?",
+        listOf("Papua", "Sumatra", "Borneo", "Jawa"),
+        0,
+>>>>>>> 14baeaa (0.5 Tampilan images)
         null
     )
 )

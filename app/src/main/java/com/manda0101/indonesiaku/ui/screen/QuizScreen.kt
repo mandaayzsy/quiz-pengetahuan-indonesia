@@ -1,6 +1,5 @@
 package com.manda0101.indonesiaku.ui.screen
 
-import android.widget.Button
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -20,6 +19,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -37,7 +38,12 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewMod
     val context = LocalContext.current
     val question = quizList[questionIndex]
 
+<<<<<<< HEAD
     val score = quizViewModel.score.intValue
+=======
+    // Gunakan mutableIntStateOf untuk mengupdate score
+    val score = rememberSaveable { mutableIntStateOf(0) }
+>>>>>>> 14baeaa (0.5 Tampilan images)
 
     Scaffold(
         topBar = {
@@ -64,6 +70,10 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewMod
                 style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold)
             )
 
+<<<<<<< HEAD
+=======
+            // Menampilkan gambar jika ada
+>>>>>>> 14baeaa (0.5 Tampilan images)
             question.imageResId?.let { imageResId ->
                 Image(
                     painter = painterResource(id = imageResId),
@@ -90,7 +100,11 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewMod
                                 onClick = {
                                     val isCorrect = index == question.correctAnswer
                                     if (isCorrect) {
+<<<<<<< HEAD
                                         quizViewModel.addScore()  // Menambahkan skor
+=======
+                                        score.value += 1  // Tambah score jika jawaban benar
+>>>>>>> 14baeaa (0.5 Tampilan images)
                                         Toast.makeText(context, "Jawaban Benar!", Toast.LENGTH_SHORT).show()
                                     } else {
                                         Toast.makeText(context, "Jawaban Salah!", Toast.LENGTH_SHORT).show()
@@ -100,7 +114,12 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewMod
                                     if (questionIndex < quizList.size - 1) {
                                         navController.navigate("quizScreen/${questionIndex + 1}")
                                     } else {
+<<<<<<< HEAD
                                         navController.navigate("resultScreen/score/${quizViewModel.score.intValue}")
+=======
+                                        // Navigasi ke halaman hasil
+                                        navController.navigate("resultScreen/score/${score.intValue}")
+>>>>>>> 14baeaa (0.5 Tampilan images)
                                     }
                                 }
                             ) {
