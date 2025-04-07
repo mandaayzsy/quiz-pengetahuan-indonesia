@@ -20,7 +20,6 @@ fun ResultScreen(score: Int, navController: NavController, quizViewModel: QuizVi
         modifier = Modifier.padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Text(
             text = "Skor Anda: $score",
             style = MaterialTheme.typography.titleLarge
@@ -29,9 +28,10 @@ fun ResultScreen(score: Int, navController: NavController, quizViewModel: QuizVi
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(onClick = {
+            // Reset skor di ViewModel sebelum mulai lagi
             quizViewModel.resetScore()
             navController.navigate("quizScreen/0") {
-                popUpTo("languageSelection") { inclusive = true }
+                popUpTo("languageSelection") { inclusive = true }  // Menghapus stack sebelumnya
             }
         }) {
             Text("Mulai Lagi")
