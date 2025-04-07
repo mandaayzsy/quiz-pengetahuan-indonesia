@@ -13,61 +13,61 @@ data class QuizQuestion(
 
 val quizList = listOf(
     QuizQuestion(
-        "Apa ibu kota Indonesia?",
+        "1. Apa ibu kota Indonesia?",
         listOf("Jakarta", "Bandung", "Surabaya", "Medan"),
         0,
         null
     ),
     QuizQuestion(
-        "Siapa Presiden pertama Indonesia?",
+        "2. Siapa Presiden pertama Indonesia?",
         listOf("Soeharto", "Soekarno", "BJ Habibie", "Jokowi"),
         1,
         null
     ),
     QuizQuestion(
-        "Berapa jumlah provinsi di Indonesia?",
+        "3. Berapa jumlah provinsi di Indonesia?",
         listOf("32", "34", "33", "35"),
         1,
         null
     ),
     QuizQuestion(
-        "Di mana terletak Candi Borobudur?",
+        "4. Di mana terletak Candi Borobudur?",
         listOf("Magelang", "Yogyakarta", "Surabaya", "Jakarta"),
         0,
         R.drawable.borobudur_temple
     ),
     QuizQuestion(
-        "Apa warna bendera Indonesia?",
+        "5. Apa warna bendera Indonesia?",
         listOf("Merah dan Putih", "Merah dan Biru", "Hijau dan Putih", "Putih dan Kuning"),
         0,
         null
     ),
     QuizQuestion(
-        "Dimana letak Taman Nasional Komodo?",
+        "6. Dimana letak Taman Nasional Komodo?",
         listOf("Bali","Nusa Tenggara Timur", "Sumatra", "Sulawesi"),
         1,
         R.drawable.pulau_komodo
     ),
     QuizQuestion(
-        "Siapa Presiden Indonesia saat ini?",
+        "7. Siapa Presiden Indonesia saat ini?",
         listOf("Prabowo", "Megawati", "Jokowi", "Anies"),
         0,
         null
     ),
     QuizQuestion(
-        "Apa bahasa resmi Indonesia?",
+        "8. Apa bahasa resmi Indonesia?",
         listOf("Bahasa Inggris", "Bahasa Indonesia", "Bahasa Jawa", "Bahasa Sunda"),
         1,
         null
     ),
     QuizQuestion(
-        "Kapan Indonesia merdeka?",
+        "9. Kapan Indonesia merdeka?",
         listOf("17 Agustus 1945", "20 Mei 1908", "28 Oktober 1928", "8 Maret 1942"),
         0,
         null
     ),
     QuizQuestion(
-        "Apa nama pulau terbesar di Indonesia?",
+        "10. Apa nama pulau terbesar di Indonesia?",
         listOf("Papua", "Sumatra", "Borneo", "Jawa"),
         0,
         null

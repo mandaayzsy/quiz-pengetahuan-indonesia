@@ -12,22 +12,25 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.manda0101.indonesiaku.ui.viewmodel.QuizViewModel
 
 @Composable
-fun ResultScreen(score: Int, navController: NavController) {
+fun ResultScreen(score: Int, navController: NavController, quizViewModel: QuizViewModel) {
     Column(
         modifier = Modifier.padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
         Text(
             text = "Skor Anda: $score",
             style = MaterialTheme.typography.titleLarge
         )
+
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(onClick = {
+            quizViewModel.resetScore()
             navController.navigate("quizScreen/0") {
-
                 popUpTo("languageSelection") { inclusive = true }
             }
         }) {

@@ -19,8 +19,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -30,15 +28,14 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.manda0101.indonesiaku.R
 import com.manda0101.indonesiaku.model.quizList
+import com.manda0101.indonesiaku.ui.viewmodel.QuizViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun QuizScreen(navController: NavController, questionIndex: Int = 0) {
+fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewModel: QuizViewModel) {
     val context = LocalContext.current
     val question = quizList[questionIndex]
-
-    // Gunakan mutableIntStateOf untuk mengupdate score
-    val score = rememberSaveable { mutableIntStateOf(0) }
+    val score = quizViewModel.score.intValue
 
     Scaffold(
         topBar = {
@@ -55,11 +52,16 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0) {
     ) { contentPadding ->
         Column(modifier = Modifier.padding(contentPadding).padding(16.dp)) {
             Text(
+                text = "Skor Saat Ini: $score",
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
+
+            Text(
                 text = question.question,
                 style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold)
             )
 
-            // Menampilkan gambar jika ada
             question.imageResId?.let { imageResId ->
                 Image(
                     painter = painterResource(id = imageResId),
@@ -73,7 +75,6 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Menampilkan pilihan ganda
             LazyColumn {
                 itemsIndexed(question.options.chunked(2)) { _, options ->
                     Row(
@@ -86,7 +87,7 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0) {
                                 onClick = {
                                     val isCorrect = index == question.correctAnswer
                                     if (isCorrect) {
-                                        score.value += 1  // Tambah score jika jawaban benar
+                                        quizViewModel.addScore()
                                         Toast.makeText(context, "Jawaban Benar!", Toast.LENGTH_SHORT).show()
                                     } else {
                                         Toast.makeText(context, "Jawaban Salah!", Toast.LENGTH_SHORT).show()
@@ -96,8 +97,7 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0) {
                                     if (questionIndex < quizList.size - 1) {
                                         navController.navigate("quizScreen/${questionIndex + 1}")
                                     } else {
-                                        // Navigasi ke halaman hasil
-                                        navController.navigate("resultScreen/score/${score.intValue}")
+                                        navController.navigate("resultScreen/score/${quizViewModel.score.intValue}")
                                     }
                                 }
                             ) {
