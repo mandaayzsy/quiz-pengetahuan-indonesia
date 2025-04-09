@@ -26,10 +26,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 val quizViewModel: QuizViewModel = viewModel()
 
-<<<<<<< HEAD
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-=======
->>>>>>> 14baeaa (0.5 Tampilan images)
                     NavHost(navController = navController, startDestination = "languageSelection") {
                         composable("languageSelection") {
                             LanguageSelectionScreen(navController = navController)
@@ -40,11 +37,7 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("resultScreen/score/{score}") { backStackEntry ->
                             val score = backStackEntry.arguments?.getString("score")?.toInt() ?: 0
-<<<<<<< HEAD
                             ResultScreen(score = score, navController = navController, quizViewModel = quizViewModel)
-=======
-                            ResultScreen(score = score, navController = navController)
->>>>>>> 14baeaa (0.5 Tampilan images)
                         }
                     }
                 }
