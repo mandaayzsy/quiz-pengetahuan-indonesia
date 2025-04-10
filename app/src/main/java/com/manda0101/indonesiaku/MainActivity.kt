@@ -11,7 +11,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.manda0101.indonesiaku.ui.screen.LanguageSelectionScreen
+import com.manda0101.indonesiaku.ui.screen.CategorySelectionScreen
 import com.manda0101.indonesiaku.ui.screen.QuizScreen
 import com.manda0101.indonesiaku.ui.screen.ResultScreen
 import com.manda0101.indonesiaku.ui.theme.IndonesiakuTheme
@@ -27,9 +27,10 @@ class MainActivity : ComponentActivity() {
                 val quizViewModel: QuizViewModel = viewModel()
 
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    NavHost(navController = navController, startDestination = "languageSelection") {
-                        composable("languageSelection") {
-                            LanguageSelectionScreen(navController = navController)
+
+                    NavHost(navController = navController, startDestination = "categorySelection") {
+                        composable("categorySelection") {
+                            CategorySelectionScreen(navController = navController)
                         }
                         composable("quizScreen/{questionIndex}") { backStackEntry ->
                             val questionIndex = backStackEntry.arguments?.getString("questionIndex")?.toInt() ?: 0

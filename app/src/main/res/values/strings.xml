@@ -1,7 +1,29 @@
 <resources>
     <string name="Indonesiaku">IndonesiaKu</string>
-    <string name="result_title">Quiz Result</string>
+    <string name="result_title">Hasil Kuis</string>
     <string name="next_button">Lanjut</string>
     <string name="score_label">Skor Anda: %1$d / %2$d</string>
     <string name="restart_button">Ulangi Kuis</string>
+
+    <string name="select_category_title">Pilih Kategori</string>
+    <string name="category_student">Pelajar</string>
+    <string name="category_student_description">Untuk pelajar tingkat sekolah</string>
+    <string name="category_university">Mahasiswa</string>
+    <string name="category_university_description">Untuk mahasiswa tingkat universitas</string>
+    <string name="category_community">Masyarakat</string>
+    <string name="category_community_description">Untuk masyarakat umum</string>
+
+    <string name="question_1">Apa ibu kota Indonesia?</string>
+    <string name="question_2">Siapa Presiden pertama Indonesia?</string>
+    <string name="question_3">Berapa jumlah provinsi di Indonesia?</string>
+    <string name="question_4">Di mana terletak Candi Borobudur?</string>
+    <string name="question_5">Apa warna bendera Indonesia?</string>
+    <string name="question_6">Dimana letak Taman Nasional Komodo?</string>
+    <string name="question_7">Siapa Presiden Indonesia saat ini?</string>
+    <string name="question_8">Apa bahasa resmi Indonesia?</string>
+    <string name="question_9">Kapan Indonesia merdeka?</string>
+    <string name="question_10">Apa nama pulau terbesar di Indonesia?</string>
+
+    <string name="correct_answer">Jawaban Benar!</string>
+    <string name="incorrect_answer">Jawaban Salah!</string>
 </resources>

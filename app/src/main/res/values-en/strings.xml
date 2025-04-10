@@ -4,4 +4,26 @@
     <string name="next_button">Next</string>
     <string name="score_label">Your Score: %1$d / %2$d</string>
     <string name="restart_button">Restart Quiz</string>
+
+    <string name="select_category_title">Select Category</string>
+    <string name="category_student">Student</string>
+    <string name="category_student_description">For school-level students</string>
+    <string name="category_university">University Student</string>
+    <string name="category_university_description">For university-level students</string>
+    <string name="category_community">Community</string>
+    <string name="category_community_description">For the general public</string>
+
+    <string name="question_1">What is the capital of Indonesia?</string>
+    <string name="question_2">Who was the first president of Indonesia?</string>
+    <string name="question_3">How many provinces does Indonesia have?</string>
+    <string name="question_4">Where is Borobudur Temple located?</string>
+    <string name="question_5">What is the color of Indonesia flag?</string>
+    <string name="question_6">Where is Komodo National Park located?</string>
+    <string name="question_7">Who is the current president of Indonesia?</string>
+    <string name="question_8">What is the official language of Indonesia?</string>
+    <string name="question_9">When did Indonesia gain independence?</string>
+    <string name="question_10">What is the largest island in Indonesia?</string>
+
+    <string name="correct_answer">Correct Answer!</string>
+    <string name="incorrect_answer">Incorrect Answer!</string>
 </resources>

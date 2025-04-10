@@ -2,25 +2,11 @@ package com.manda0101.indonesiaku.ui.screen
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -37,13 +23,7 @@ import com.manda0101.indonesiaku.ui.viewmodel.QuizViewModel
 fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewModel: QuizViewModel) {
     val context = LocalContext.current
     val question = quizList[questionIndex]
-
-<<<<<<< HEAD
-    val score = quizViewModel.score.intValue
-=======
-    // Gunakan mutableIntStateOf untuk mengupdate score
-    val score = rememberSaveable { mutableIntStateOf(0) }
->>>>>>> 14baeaa (0.5 Tampilan images)
+    val score = quizViewModel.score.intValue // Menghindari autoboxing dengan menggunakan intValue
 
     Scaffold(
         topBar = {
@@ -60,7 +40,7 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewMod
     ) { contentPadding ->
         Column(modifier = Modifier.padding(contentPadding).padding(16.dp)) {
             Text(
-                text = "Skor Saat Ini: $score", // Menampilkan score saat ini
+                text = "Skor Saat Ini: $score", // Menampilkan skor saat ini
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                 modifier = Modifier.padding(bottom = 16.dp)
             )
@@ -70,10 +50,6 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewMod
                 style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold)
             )
 
-<<<<<<< HEAD
-=======
-            // Menampilkan gambar jika ada
->>>>>>> 14baeaa (0.5 Tampilan images)
             question.imageResId?.let { imageResId ->
                 Image(
                     painter = painterResource(id = imageResId),
@@ -87,7 +63,6 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewMod
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Menampilkan pilihan ganda
             LazyColumn {
                 itemsIndexed(question.options.chunked(2)) { _, options ->
                     Row(
@@ -100,26 +75,16 @@ fun QuizScreen(navController: NavController, questionIndex: Int = 0, quizViewMod
                                 onClick = {
                                     val isCorrect = index == question.correctAnswer
                                     if (isCorrect) {
-<<<<<<< HEAD
                                         quizViewModel.addScore()  // Menambahkan skor
-=======
-                                        score.value += 1  // Tambah score jika jawaban benar
->>>>>>> 14baeaa (0.5 Tampilan images)
                                         Toast.makeText(context, "Jawaban Benar!", Toast.LENGTH_SHORT).show()
                                     } else {
                                         Toast.makeText(context, "Jawaban Salah!", Toast.LENGTH_SHORT).show()
                                     }
 
-                                    // Navigasi ke soal berikutnya atau ke hasil
                                     if (questionIndex < quizList.size - 1) {
                                         navController.navigate("quizScreen/${questionIndex + 1}")
                                     } else {
-<<<<<<< HEAD
                                         navController.navigate("resultScreen/score/${quizViewModel.score.intValue}")
-=======
-                                        // Navigasi ke halaman hasil
-                                        navController.navigate("resultScreen/score/${score.intValue}")
->>>>>>> 14baeaa (0.5 Tampilan images)
                                     }
                                 }
                             ) {
